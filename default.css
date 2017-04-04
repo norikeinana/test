@@ -1,0 +1,376 @@
+/*---------------------------
+#03 セレクタとプロパティを理解しよう
+-----------------------------*/
+/*
+    セレクタ {プロパティ名：値;}
+    セレクタ {
+        プロパティ名：値;
+        プロパティ名：値;
+    }
+
+*/
+/*
+    * ユニバーサルセレクタ
+    要素名 p h1 div
+    #id
+    .class
+*/
+/** {color:skyblue}*/
+/*h1 {color:skyblue}
+#first {color:orange}
+.point {color:violet}*/
+
+
+/*---------------------------
+#04  もっとセレクタを使ってみよう
+-----------------------------*/
+/*
+    セレクタ
+    a,b
+    a b
+    a > b
+    a + b
+    ab
+*/
+
+/* h1とpに適用 */
+/*h1, p {color:skyblue;}*/
+
+/* div配下のspanを適用 */
+/*div span {color:skyblue;}*/
+
+/* divの直下のspanのみ適用*/
+/*div > span {color:skyblue;}*/
+
+/* pの次にくるp要素に適用*/
+/*p + p {color:skyblue;}*/
+
+/* pかつpointsのみ適用*/
+/*p.points {color:skyblue;}*/
+
+
+/*---------------------------
+#05  属性セレクタを使ってみよう
+-----------------------------*/
+/*a[title] {color:skyblue;}*/
+/*a[href="http://google.com"] {color:orange;}*/
+/* aタグの中に"search"が含まれるもの　*/
+/*a[class~="search"] {color:violet;}*/
+
+/*---------------------------
+#06  疑似クラスを使ってみよう
+-----------------------------*/
+/*
+    セレクタ
+    疑似クラス（ある要素の状態を指定する）
+*/
+/* liの最初の要素のみ適用*/
+/*ul li:first-child {color:skyblue;}*/
+
+
+/*そのサイトを訪問した事があるかどうか*/
+/*上から順番に定義する事*/
+/*a:link{color:violet;}*/
+/*a:visited{color:orange;}*/
+/*マウスが乗った時*/
+/*a:hover{color:pink;}*/
+/*マウスでクリック*/
+/*a:active{color:red;}*/
+/*フォーカスが当たった場合*/
+/*input:focus{background: skyblue;}*/
+
+/*---------------------------
+#07  疑似要素を使ってみよう
+-----------------------------*/
+/*
+    セレクタ
+    疑似要素（ある要素の一部を指定する）
+*/
+/*最初の１行目のみ */
+/*p:first-line {color: skyblue;}*/
+/*最初の１文字のみ */
+/*p:first-letter {color: skyblue;}*/
+/*p要素の前に付加*/
+/*p:before{
+    content:"-->";
+}*/
+/*p要素の後に付加*/
+/*p:after{
+    content:"<--";
+}*/
+
+/*---------------------------
+#08 セレクタの詳細度を理解しよう
+-----------------------------*/
+/*
+    セレクタ
+    セレクタが複数個存在した場合、どのセレクタが優先されるか？
+    詳細度
+     (a) style=""
+     (b) id
+     (c) 属性／疑似クラス
+     (d) 要素／疑似要素
+*/
+/* styleが無いので0 idがないので0 属性／疑似クラスがないので0 要素はあるので1*/
+/* 0,0,0,1 */
+/*a { color: skyblue;}*/
+/* !importantを付加する事で最優先となる */
+/*a { color: skyblue !important;}*/
+
+/* 0,0,1,1 */
+/* 下が優先される */
+/*a.link { color: pink;}*/
+/* 0,0,1,1 */
+/* 同じ詳細度であれば上が優先される */
+/*a.search { color: orange;}*/
+/* 0,1,0,1 */
+/* 上よりもIDの方が詳細度が高いので優先される */
+/*a#site { color: blue;}*/
+
+/*---------------------------
+#09 プロパティの値を指定しよう
+-----------------------------*/
+/*
+    値
+        長さ
+            -px
+            -em
+            -%
+        色
+            -名前
+            -RGB
+                -Red 0-f/ 00-ff/ 0-255
+                0%-100%
+                -Green
+                -Blue
+*/
+/*body{font-size: 16px;}*/
+/* 32px */
+/*h1{font-size: 2em;}*/
+/* 24px */
+/*h2{font-size: 150%;}*/
+
+/*h1{color: blue;}
+h1{color: #00f;}
+h1{color: #0000ff;}
+h1{color: rgb(0,0,255);}
+h1{color: rgb(0%,0%,100%);}*/
+
+/*---------------------------
+#10 ボックスモデルを理解しよう
+-----------------------------*/
+/*
+    ボックスモデル
+*/
+/* divの親要素の高さを明示的に指定 */
+/*body, html{
+    height:100%;
+}*/
+/*div {*/
+    /*background: silver;
+    width:200px;*/
+    /*width:50%;*/
+    /*height:100px;*/
+    /*高さは親要素の高さを明示的に示さないといけない*/
+    /*height:50%;*/
+/*}*/
+
+/*---------------------------
+#11 borderで境界線のスタイルを変えよう
+-----------------------------*/
+/*
+    border
+    境界線の色
+    border-color:
+    境界線の幅
+    border-witdh:
+    境界線のスタイル
+    border-style:
+        solid/dotted/dashed/double/inset/outset
+*/
+/*div {*/
+    /*border-color: orange;
+    border-width:4px;
+    border-style: dotted;*/
+    /*一行にまとめる*/
+    /*border:orange 4px dotted;*/
+    /*上だけ境界線を付加 */
+    /*border-top:orange 4px dotted;*/
+/*}*/
+
+/*---------------------------
+#12 paddingで余白を制御しよう
+-----------------------------*/
+/*
+    padding
+    padding-top:10px
+    padding-right:10px
+    padding-left:10px
+    padding-bottom:10px
+
+    padding:
+     all
+     top/bottom right/left
+     top right/left bottom
+     top right bottom left
+
+
+
+*/
+/*body{
+    margin: 0px;
+}*/
+/*div {
+    background: silver;*/
+    /*２つなので上下10px 左右50px*/
+    /*padding:10px 50px;*/
+    /*4つなので右回りに上10px　右20px　下30px　左40px*/
+    /*padding: 10px 20px 30px 40px;
+}*/
+/*---------------------------
+#13 marginとmarginの相殺を理解しよう
+-----------------------------*/
+/*
+    境界線の外側の余白
+        marginの総裁
+            上下にmarginが並んでいる場合、
+            大きい値が採用される
+
+        margin-top:10px
+        margin-right:10px
+        margin-left:10px
+        margin-bottom:10px
+
+    margin:
+        all
+        top/bottopm right/left
+        top right/left bottom
+        top right bottom left
+*/
+/*body {margin:0;}
+
+div#box1{
+    background: silver;
+    margin:10px 20px 30px;
+}
+div#box2{
+    background: orange;
+    margin:20px;
+}*/
+/*---------------------------
+#14 文字に対するプロパティを使ってみよう
+-----------------------------*/
+/*
+    text
+        文字色
+        -color:orange
+        フォントの大きさ
+        -font-size:14px
+        フォント種類
+        -font-family:Arial, Helvetica;
+        太字にするか
+        -font-weigth:bold/normal;
+        行揃え
+        -text-align:right/center/left;
+        下線を引きたい場合等
+        -text-decoration:
+            underline/line-through/none
+*/
+/*p{
+    color: silver;
+    font-size:24px;
+    font-family: Arial;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: underline line-through;
+}*/
+/*---------------------------
+#15 list-styleでリストのスタイルを変えよう
+-----------------------------*/
+/*
+    list
+        -list-style-type:
+            黒丸　白丸　四角　連番　アルファベット
+            disc/circle/square/decimal/lower-alpha
+        -list-style-image:
+            内側に表示が外側か
+        -list-style-position: inside/outside
+        -list-style:
+*/
+/*ul{*/
+    /* 1.あいうえお */
+    /* 2.あいうえお */
+    /*list-style: inside decimal;*/
+    /* a.あいうえお */
+    /* b.あいうえお */
+    /*list-style: outside lower-alpha;*/
+    /* list-styleで画像を使用した場合、 list-style-typeが上書きされる*/
+    /*list-style: url('smaile.png') circle;*/
+/*}*/
+/*---------------------------
+#16 cursolでカーソルの形状を変えよう
+-----------------------------*/
+/*
+    cursor
+*/
+/*.help{cursor: help;}
+.dragme{cursor: move;}
+.clickme{cursor: pointer;}
+.smile{ cursor: url('smile.png'), auto;}*/
+/*---------------------------
+#17 backgroundで背景スタイルを変えよう
+-----------------------------*/
+/*
+    background
+*/
+/*body{*/
+    /*background-color: silver;
+    background-image: url('image.jpg');*/
+    /*画像を敷き詰めるのをやめる*/
+    /*background-repeat: no-repeat;*/
+    /*background-repeat: repeat-x;*/
+    /*background-position: 10px 10px;*/
+    /*background-position: top center;*/
+    /*background-attachment: scroll;*/
+    /*background-attachment: fixed;*/
+    /*background: url('image.jpg') no-repeat fixed;*/
+/*}*/
+/*---------------------------
+#18 display要素の配置方法を変えよう
+-----------------------------*/
+/*
+下に積み重なって表示：ブロックボックス
+h1,p ブロックレベル要素
+左に詰められて表示：インラインボックス
+span,a インラインレベル要素
+ display
+    ブロックボックスにしたい
+    -block
+    インラインボックスにしたい
+    -inline
+    リストのように左にマーカー表示
+    -list-item
+    インラインのように左に詰められるがblockの性質も持つ
+    -inline-block
+    表示しない
+    -none
+*/
+/*h1,p,span,a{
+    border:1px solid #add
+}*/
+/*h1, p{*/
+    /* 幅、高さが無効となる */
+    /*width: 120px;
+    display: inline;
+}*/
+/*h1, p{*/
+    /* 幅、高さが友好となる */
+    /*width: 120px;
+    display: inline-block;
+}
+span{
+    display: none;
+}*/
+/*---------------------------
+#19 positionで位置を調整してみよう
+-----------------------------*/
